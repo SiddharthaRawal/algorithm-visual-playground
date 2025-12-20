@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visual Playground | CS Portfolio</title>
+    <meta name="description" content="Interactive algorithm visualization tool for sorting, graph traversal, pathfinding, and recursion">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="nav-header">
+        <div class="container">
+            <h1 class="logo">Algorithm Visual Playground</h1>
+            <nav class="category-nav">
+                <button class="category-btn active" data-category="sorting">Sorting</button>
+                <button class="category-btn" data-category="graph">Graph Traversal</button>
+                <button class="category-btn" data-category="pathfinding">Pathfinding</button>
+                <button class="category-btn" data-category="recursion">Recursion</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Algorithm Selector -->
+    <section class="algorithm-selector">
+        <div class="container">
+            <div class="selector-group">
+                <label for="algorithm-select">Algorithm:</label>
+                <select id="algorithm-select">
+                    <!-- Sorting -->
+                    <optgroup label="Sorting Algorithms">
+                        <option value="bubble-sort" data-category="sorting">Bubble Sort</option>
+                        <option value="insertion-sort" data-category="sorting">Insertion Sort</option>
+                        <option value="merge-sort" data-category="sorting">Merge Sort</option>
+                    </optgroup>
+                    <!-- Graph -->
+                    <optgroup label="Graph Algorithms">
+                        <option value="bfs" data-category="graph">Breadth-First Search (BFS)</option>
+                        <option value="dfs" data-category="graph">Depth-First Search (DFS)</option>
+                    </optgroup>
+                    <!-- Pathfinding -->
+                    <optgroup label="Pathfinding Algorithms">
+                        <option value="dijkstra" data-category="pathfinding">Dijkstra's Algorithm</option>
+                        <option value="astar" data-category="pathfinding">A* Algorithm</option>
+                    </optgroup>
+                    <!-- Recursion -->
+                    <optgroup label="Recursion">
+                        <option value="tree-preorder" data-category="recursion">Tree Preorder</option>
+                        <option value="tree-inorder" data-category="recursion">Tree Inorder</option>
+                        <option value="tree-postorder" data-category="recursion">Tree Postorder</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="config-group">
+                <label for="data-size">Size:</label>
+                <input type="range" id="data-size" min="5" max="50" value="20">
+                <span id="size-value">20</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application -->
+    <main class="main-app">
+        <div class="container app-container">
+            <!-- Visualization Canvas -->
+            <div class="canvas-area">
+                <canvas id="visualization-canvas"></canvas>
+                <div id="grid-container" class="hidden"></div>
+            </div>
+
+            <!-- Side Panel -->
+            <aside class="side-panel">
+                <!-- Algorithm Info -->
+                <section class="info-section">
+                    <h2 id="algo-title">Select an Algorithm</h2>
+                    <p id="algo-description">Choose an algorithm from the dropdown to begin.</p>
+                    
+                    <div class="complexity-info">
+                        <div class="complexity-item">
+                            <span class="label">Time (Best):</span>
+                            <span id="time-best">—</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span class="label">Time (Avg):</span>
+                            <span id="time-avg">—</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span class="label">Time (Worst):</span>
+                            <span id="time-worst">—</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span class="label">Space:</span>
+                            <span id="space-complexity">—</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case">
+                        <h3>When to Use</h3>
+                        <p id="use-case-text">—</p>
+                    </div>
+                </section>
+
+                <!-- Current Step Explanation -->
+                <section class="step-section">
+                    <h3>Current Step</h3>
+                    <div id="step-explanation" class="step-text">
+                        Algorithm not started
+                    </div>
+                </section>
+
+                <!-- Pseudocode -->
+                <section class="code-section">
+                    <h3>Pseudocode</h3>
+                    <pre id="pseudocode"><code>// Select an algorithm to view pseudocode</code></pre>
+                </section>
+
+                <!-- Legend -->
+                <section class="legend-section">
+                    <h3>Legend</h3>
+                    <div id="legend-items"></div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Control Panel -->
+    <footer class="control-panel">
+        <div class="container">
+            <div class="controls-left">
+                <button id="btn-play" class="control-btn primary">
+                    <span class="icon">▶</span> Play
+                </button>
+                <button id="btn-pause" class="control-btn" disabled>
+                    <span class="icon">⏸</span> Pause
+                </button>
+                <button id="btn-step" class="control-btn">
+                    <span class="icon">⏭</span> Step
+                </button>
+                <button id="btn-reset" class="control-btn">
+                    <span class="icon">↻</span> Reset
+                </button>
+            </div>
+            <div class="controls-right">
+                <label for="speed-slider">Speed:</label>
+                <input type="range" id="speed-slider" min="1" max="100" value="50">
+                <span id="speed-value">50</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/utils/constants.js"></script>
+    <script type="module" src="js/utils/helpers.js"></script>
+    <script type="module" src="js/algorithms/sorting.js"></script>
+    <script type="module" src="js/algorithms/graph.js"></script>
+    <script type="module" src="js/algorithms/pathfinding.js"></script>
+    <script type="module" src="js/algorithms/recursion.js"></script>
+    <script type="module" src="js/visualizers/sortVisualizer.js"></script>
+    <script type="module" src="js/visualizers/graphVisualizer.js"></script>
+    <script type="module" src="js/visualizers/pathVisualizer.js"></script>
+    <script type="module" src="js/visualizers/treeVisualizer.js"></script>
+    <script type="module" src="js/controllers/animationController.js"></script>
+    <script type="module" src="js/controllers/uiController.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+   

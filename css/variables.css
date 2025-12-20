@@ -1,0 +1,88 @@
+/**
+ * Design System Variables
+ */
+
+:root {
+    /* Color Palette */
+    --bg-primary: #0a0e27;
+    --bg-secondary: #151b3d;
+    --bg-tertiary: #1e2749;
+    --bg-elevated: #252e5a;
+    
+    /* Text Colors */
+    --text-primary: #e4e9f7;
+    --text-secondary: #a0a8c5;
+    --text-muted: #6b7599;
+    
+    /* Accent Colors */
+    --accent-primary: #5b8dee;
+    --accent-secondary: #7c3aed;
+    --accent-success: #10b981;
+    --accent-warning: #f59e0b;
+    --accent-error: #ef4444;
+    
+    /* Algorithm State Colors */
+    --color-default: #3b4770;
+    --color-comparing: #f59e0b;
+    --color-swapping: #ef4444;
+    --color-sorted: #10b981;
+    --color-current: #5b8dee;
+    --color-visited: #7c3aed;
+    --color-path: #10b981;
+    --color-wall: #1e2749;
+    --color-start: #10b981;
+    --color-end: #ef4444;
+    --color-frontier: #f59e0b;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Fira Code', 'Courier New', monospace;
+    
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    
+    /* Borders & Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    
+    --border-width: 1px;
+    --border-color: #2a3458;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+    
+    /* Z-index */
+    --z-base: 1;
+    --z-elevated: 10;
+    --z-header: 100;
+    --z-modal: 1000;
+}
+
+/* Dark Theme Optimization */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
